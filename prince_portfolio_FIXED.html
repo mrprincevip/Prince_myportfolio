@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Ntim - SQL Server DBA & Data Analyst | Portfolio</title>
+    <meta name="description" content="Prince Ntim - Database Administrator, Data Analyst & Data Engineer. Expertise in SQL Server, ETL pipelines, Power BI, Tableau, and Python. View my portfolio, projects, and experience.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f4c75;
+            --secondary: #3282b8;
+            --accent: #00a8e8;
+            --success: #06a77d;
+            --warning: #ff6b6b;
+            --dark: #0a0e27;
+            --light: #f8f9fa;
+            --text: #1a1a1a;
+            --text-light: #555;
+            --border: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background: #0090c7;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: left;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero .title {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .hero-buttons .btn {
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        section.light {
+            background: var(--light);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* About Section */
+        .about {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-card h4 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .skill-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-title h3 {
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .company {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .experience-date {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .experience-description {
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+
+        .experience-description li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-description li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem;
+        }
+
+        .project-header h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-body p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-impact {
+            background: var(--light);
+            padding: 1rem;
+            border-left: 4px solid var(--success);
+            border-radius: 6px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Education & Certs */
+        .education-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent);
+        }
+
+        .education-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .school {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .year {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .coursework {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .contact-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem auto;
+            max-width: 900px;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h4 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a,
+        .contact-item p {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #cbd5e0;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a5568;
+            padding-top: 2rem;
+            text-align: center;
+            color: #cbd5e0;
+        }
+
+        /* Cert Badge */
+        .cert-badge {
+            display: inline-block;
+            background: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Page visibility */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: var(--shadow-lg);
+                gap: 0.5rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                margin-top: 80px;
+                padding: 3rem 1.5rem;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .title {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .contact-buttons .btn {
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section a {
+                display: inline-block;
+                margin: 0 0.5rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-3 {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="navigateTo('home'); return false;">Prince Ntim</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="navigateTo('home'); return false;">Home</a></li>
+                <li><a href="#" onclick="navigateTo('experience'); return false;">Experience</a></li>
+                <li><a href="#" onclick="navigateTo('skills'); return false;">Skills</a></li>
+                <li><a href="#" onclick="navigateTo('projects'); return false;">Projects</a></li>
+                <li><a href="#" onclick="navigateTo('education'); return false;">Education</a></li>
+                <li><a href="#" onclick="navigateTo('contact'); return false;">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="navigateTo('contact'); return false;">Get In Touch</button>
+                <button class="btn btn-primary" onclick="downloadResume(); return false;">Download Resume</button>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page-content active">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Prince Ntim</h1>
+                <p class="title">SQL Server DBA | Data Analyst | Database Engineer</p>
+                <p>Experienced Database Administrator and Data professional with proven expertise in SQL Server management, ETL pipeline design, BI dashboard development, and data-driven decision making. MS in Management Information Systems candidate at Lamar University. OPT Work Authorized.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="navigateTo('experience'); return false;">View My Experience</button>
+                    <a href="https://www.linkedin.com/in/mrprinceglobal/" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
+                    <button class="btn btn-accent" onclick="navigateTo('contact'); return false;">Hire Me</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <section class="light">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                    <div>
+                        <h3 style="color: var(--accent); font-size: 2.5rem;">5+</h3>
+                        <p style="color: var(--text-light);">Years of Professional Experience</p>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--accent); font-size: 2.5rem;">3</h3>
+                        <p style="color: var(--text-light);">Database Platforms Mastered</p>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--accent); font-size: 2.5rem;">100+</h3>
+                        <p style="color: var(--text-light);">Hours Automated & Saved Annually</p>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--accent); font-size: 2.5rem;">30%</h3>
+                        <p style="color: var(--text-light);">Avg. Data Accuracy Improvement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Overview -->
+        <section>
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about">
+                    <div class="about-text">
+                        <p>I'm a detail-oriented Database Administrator and Data Analyst with a passion for solving complex data challenges. With hands-on experience across SQL Server, Oracle, and MySQL databases, I specialize in designing robust ETL pipelines, optimizing database performance, and creating actionable insights through advanced analytics.</p>
+                        <p>Currently pursuing my Master's degree in Management Information Systems at Lamar University, I combine academic rigor with real-world experience to deliver data solutions that drive business growth. My track record includes automating critical workflows, improving data accuracy by 30%, and building dashboards that empower executives to make data-driven decisions.</p>
+                        <p><strong>What I bring to your team:</strong> Strategic database management, modern BI tools expertise, automation & workflow optimization, and a commitment to data quality and security.</p>
+                        <div class="badge-group">
+                            <span class="badge">SQL Server Expert</span>
+                            <span class="badge">ETL Architecture</span>
+                            <span class="badge">Power BI & Tableau</span>
+                            <span class="badge">Python Data Analysis</span>
+                            <span class="badge">Data Modeling</span>
+                            <span class="badge">Performance Tuning</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 12px; padding: 2rem; color: white; text-align: center;">
+                            <h4 style="color: white; margin-bottom: 1.5rem;">Key Information</h4>
+                            <p style="margin-bottom: 1rem; color: rgba(255,255,255,0.9);"><strong>Status:</strong> OPT Work Authorized</p>
+                            <p style="margin-bottom: 1rem; color: rgba(255,255,255,0.9);"><strong>Location:</strong> Beaumont, TX 77705</p>
+                            <p style="margin-bottom: 1rem; color: rgba(255,255,255,0.9);"><strong>Education:</strong> MS in MIS (Lamar University)</p>
+                            <p style="margin-bottom: 1rem; color: rgba(255,255,255,0.9);"><strong>Phone:</strong> (303) 356-1669</p>
+                            <p style="color: rgba(255,255,255,0.9);"><strong>Email:</strong> pntim@lamar.edu</p>
+                            <button class="btn btn-accent" style="margin-top: 1.5rem;" onclick="navigateTo('contact'); return false;">Connect With Me</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- EXPERIENCE PAGE -->
+    <div id="experience" class="page-content">
+        <div style="margin-top: 80px; padding: 3rem 2rem;">
+            <div class="container">
+                <h2>Professional Experience</h2>
+                <p class="section-subtitle">5+ years of hands-on database and data analytics expertise</p>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Data Systems & Program Operations Manager</h3>
+                            <p class="company">Kick2Build Organization • Colorado, US</p>
+                        </div>
+                        <div class="experience-date">2023 – Present</div>
+                    </div>
+                    <ul class="experience-description">
+                        <li>Designed and maintained centralized SQL-based data systems tracking program performance, community impact metrics, and operational KPIs across multiple departments.</li>
+                        <li>Built and deployed Power BI KPI dashboards monitoring engagement, funding allocation, and efficiency, enabling data-driven executive decision-making.</li>
+                        <li>Automated recurring reporting workflows, reducing report turnaround time by <strong>50%</strong> and eliminating manual processing errors.</li>
+                        <li>Conducted exploratory data analysis (EDA) to optimize resource distribution, projecting a <strong>15% improvement</strong> in program reach.</li>
+                        <li>Standardized data entry and validation protocols, improving data integrity and consistency across all reporting systems.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Data Analyst (Remote)</h3>
+                            <p class="company">National Health Insurance Authority Ghana</p>
+                        </div>
+                        <div class="experience-date">Jul 2021 – Jul 2023</div>
+                    </div>
+                    <ul class="experience-description">
+                        <li>Extracted, transformed, and loaded (ETL) large-scale datasets from SQL databases and REST APIs for operational reporting and business intelligence.</li>
+                        <li>Developed Tableau dashboards analyzing healthcare churn, insurance claims trends, and utilization patterns — directly supporting strategic planning.</li>
+                        <li>Automated monthly executive reporting pipeline, saving approximately <strong>60 hours/month</strong> in manual reporting effort.</li>
+                        <li>Standardized data cleaning and validation processes using SQL and Python (Pandas), improving reporting accuracy by <strong>30%</strong>.</li>
+                        <li>Queried and maintained Oracle and MySQL databases; wrote complex stored procedures and views for analytical reporting.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>IT & Operations Support Analyst</h3>
+                            <p class="company">Justmoh Mining Services Ltd. Ghana</p>
+                        </div>
+                        <div class="experience-date">Mar 2015 – Mar 2016</div>
+                    </div>
+                    <ul class="experience-description">
+                        <li>Automated equipment tracking and maintenance reports using Excel macros, improving operational reporting efficiency by <strong>35%</strong>.</li>
+                        <li>Reconciled and validated financial records exceeding $10K monthly, achieving <strong>100% accuracy</strong> across all reporting periods.</li>
+                        <li>Provided IT infrastructure support, troubleshooting database connectivity and system performance issues.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILLS PAGE -->
+    <div id="skills" class="page-content">
+        <div style="margin-top: 80px;">
+            <section class="light">
+                <div class="container">
+                    <h2>Technical Skills & Expertise</h2>
+                    <p class="section-subtitle">Comprehensive expertise across databases, programming, and business intelligence</p>
+
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h4>🗄️ Database Management</h4>
+                            <ul class="skill-list">
+                                <li>MS SQL Server</li>
+                                <li>Oracle 12c</li>
+                                <li>MySQL</li>
+                                <li>T-SQL Programming</li>
+                                <li>Stored Procedures & Views</li>
+                                <li>Query Optimization</li>
+                                <li>Index Management</li>
+                                <li>Backup & Recovery</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-card">
+                            <h4>🔧 DBA & Database Engineering</h4>
+                            <ul class="skill-list">
+                                <li>Database Design</li>
+                                <li>ETL Pipeline Architecture</li>
+                                <li>Data Modeling</li>
+                                <li>Performance Tuning</li>
+                                <li>Database Optimization</li>
+                                <li>Backup Strategies</li>
+                                <li>Disaster Recovery</li>
+                                <li>Database Maintenance</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-card">
+                            <h4>📊 Business Intelligence & Analytics</h4>
+                            <ul class="skill-list">
+                                <li>Power BI Dashboard Development</li>
+                                <li>Tableau Visualization</li>
+                                <li>KPI Design & Monitoring</li>
+                                <li>Exploratory Data Analysis</li>
+                                <li>Statistical Modeling</li>
+                                <li>Anomaly Detection</li>
+                                <li>Data Storytelling</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-card">
+                            <h4>💻 Programming & Scripting</h4>
+                            <ul class="skill-list">
+                                <li>Python (Pandas, NumPy)</li>
+                                <li>SQL Advanced</li>
+                                <li>Git Version Control</li>
+                                <li>REST APIs</li>
+                                <li>Excel (Advanced Formulas)</li>
+                                <li>PivotTables</li>
+                                <li>VBA Macros</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-card">
+                            <h4>🎯 Professional Skills</h4>
+                            <ul class="skill-list">
+                                <li>Data Storytelling</li>
+                                <li>Stakeholder Reporting</li>
+                                <li>Remote Collaboration</li>
+                                <li>Problem-Solving</li>
+                                <li>Process Automation</li>
+                                <li>Documentation</li>
+                                <li>Project Management</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-card">
+                            <h4>📜 Certifications</h4>
+                            <ul class="skill-list">
+                                <li>Oracle Database 12c Administrator</li>
+                                <li>Google Data Analytics Professional Certificate (In Progress)</li>
+                                <li>HP LIFE — Data Science & Analytics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- PROJECTS PAGE -->
+    <div id="projects" class="page-content">
+        <div style="margin-top: 80px; padding: 3rem 2rem;">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <p class="section-subtitle">Showcasing impactful data solutions and analytics work</p>
+
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Sales Performance Dashboard</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">Power BI</span>
+                                <span class="tech-tag">SQL Server</span>
+                                <span class="tech-tag">Data Modeling</span>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Designed and deployed an interactive Power BI dashboard integrating 10,000+ sales records from multiple SQL data sources into a unified data model for real-time business intelligence.</p>
+                            <p><strong>Key Features:</strong> Interactive dashboards monitoring regional KPIs, revenue trends, and performance targets.</p>
+                            <div class="project-impact">
+                                💡 12% projected revenue increase through segment optimization
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Healthcare Claims Fraud Analysis</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Statistical Modeling</span>
+                                <span class="tech-tag">Tableau</span>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Conducted comprehensive analysis of 15,000+ insurance claims using SQL queries and statistical threshold techniques to detect anomalous billing patterns and fraudulent activity.</p>
+                            <p><strong>Methodology:</strong> Iterative rule optimization and cross-validation testing to ensure accuracy.</p>
+                            <div class="project-impact">
+                                ✓ 25% reduction in false positive fraud flags
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>ETL Pipeline Automation</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Automation</span>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <p>Designed and automated monthly executive reporting pipeline for healthcare organization, extracting data from Oracle/MySQL databases and REST APIs for BI and operational reporting.</p>
+                            <p><strong>Impact:</strong> Eliminated 60 hours/month of manual reporting effort while improving data consistency.</p>
+                            <div class="project-impact">
+                                ⚡ 60 hours/month saved + 30% accuracy improvement
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EDUCATION PAGE -->
+    <div id="education" class="page-content">
+        <div style="margin-top: 80px; padding: 3rem 2rem;">
+            <div class="container">
+                <h2>Education & Certifications</h2>
+                <p class="section-subtitle">Advanced degree and specialized certifications in database and data analytics</p>
+
+                <div style="margin-top: 3rem;">
+                    <h3 style="margin-bottom: 2rem;">Degree Programs</h3>
+                    
+                    <div class="education-item">
+                        <h4>Master of Science, Management Information Systems</h4>
+                        <p class="school">Lamar University</p>
+                        <p class="year">Expected Graduation: 2026</p>
+                        <p class="coursework">Relevant Coursework: Data Mining, Business Intelligence, Statistical Modeling, Database Design</p>
+                    </div>
+
+                    <div class="education-item">
+                        <h4>Diploma in Database Technology</h4>
+                        <p class="school">IPMC, Accra, Ghana</p>
+                        <p class="year">2020</p>
+                        <p class="coursework">Focus: Relational database design, SQL, and Oracle administration</p>
+                    </div>
+
+                    <div class="education-item">
+                        <h4>Bachelor of Science, Business Administration (Marketing)</h4>
+                        <p class="school">University of Ghana</p>
+                        <p class="year">2011</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <h3 style="margin-bottom: 2rem;">Professional Certifications</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                        <div class="cert-badge">🏆 Oracle Database 12c Administrator Associate</div>
+                        <div class="cert-badge">📊 Google Data Analytics Professional Certificate (In Progress)</div>
+                        <div class="cert-badge">🎓 HP LIFE — Data Science & Analytics</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-content">
+        <div class="contact-section" style="margin-top: 80px;">
+            <div class="container">
+                <h2>Let's Connect</h2>
+                <p style="font-size: 1.1rem; max-width: 600px; margin: 1rem auto;">I'm actively looking for opportunities in Data Analytics, Database Administration, and Data Engineering. Let's talk about how I can contribute to your team.</p>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>📞 Phone</h4>
+                        <a href="tel:+13033561669">(303) 356-1669</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>📧 Email</h4>
+                        <a href="mailto:pntim@lamar.edu">pntim@lamar.edu</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>💼 LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/mrprinceglobal/" target="_blank">linkedin.com/in/mrprinceglobal</a>
+                    </div>
+                </div>
+
+                <div class="contact-buttons">
+                    <a href="mailto:pntim@lamar.edu" class="btn btn-primary">Send Email</a>
+                    <a href="https://www.linkedin.com/in/mrprinceglobal/" target="_blank" class="btn btn-secondary">View LinkedIn</a>
+                    <button class="btn btn-accent" onclick="copyEmail(); return false;">Copy Email Address</button>
+                </div>
+
+                <div style="margin-top: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 12px; backdrop-filter: blur(10px);">
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">
+                        <strong>Status:</strong> OPT Work Authorized | <strong>Location:</strong> Beaumont, TX 77705 | <strong>Availability:</strong> Immediate
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Prince Ntim</h4>
+                <p style="color: #cbd5e0;">SQL Server DBA | Data Analyst | Database Engineer</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#" onclick="navigateTo('home'); return false;">Home</a>
+                <a href="#" onclick="navigateTo('experience'); return false;">Experience</a>
+                <a href="#" onclick="navigateTo('projects'); return false;">Projects</a>
+                <a href="#" onclick="navigateTo('skills'); return false;">Skills</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="https://www.linkedin.com/in/mrprinceglobal/" target="_blank">LinkedIn</a>
+                <a href="mailto:pntim@lamar.edu">Email</a>
+                <a href="tel:+13033561669">Phone</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Prince Ntim | SQL Server DBA & Data Analyst Portfolio | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Improved Page Navigation Function
+        function navigateTo(pageId) {
+            // Hide all pages
+            const allPages = document.querySelectorAll('.page-content');
+            allPages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Close mobile menu
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks) {
+                navLinks.classList.remove('active');
+            }
+            
+            return false;
+        }
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks) {
+                    navLinks.classList.toggle('active');
+                }
+            });
+        }
+
+        // Download Resume
+        function downloadResume() {
+            alert('Resume download functionality would be connected to your actual resume file. In production, this would download your PDF resume.');
+            return false;
+        }
+
+        // Copy Email
+        function copyEmail() {
+            const email = 'pntim@lamar.edu';
+            navigator.clipboard.writeText(email).then(() => {
+                alert('Email address copied to clipboard: ' + email);
+            }).catch(() => {
+                alert('Failed to copy. Email: ' + email);
+            });
+            return false;
+        }
+    </script>
+</body>
+</html>
